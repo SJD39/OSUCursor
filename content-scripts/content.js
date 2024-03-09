@@ -7,6 +7,7 @@ class OSUCursor {
         this.cursorCenterImg = document.createElement('img');
         this.cursorRingImg = document.createElement('img');
         this.cursorCanvas = document.createElement('canvas');
+        this.body = document.getElementsByTagName('body')[0];
 
         this.cursorBox.id = 'cursorBox';
         this.cursorCenter.id = 'cursorCenter';
@@ -23,7 +24,7 @@ class OSUCursor {
         this.cursorCenter.append(this.cursorCenterImg);
         this.cursorRing.append(this.cursorRingImg);
 
-        document.getElementsByTagName('body')[0].append(this.cursorCanvas, this.cursorBox);
+        this.body.append(this.cursorCanvas, this.cursorBox);
 
         // 初始化Canvas
         this.ctx = this.cursorCanvas.getContext("2d");
@@ -117,15 +118,18 @@ class OSUCursor {
         }
         this.ctx.closePath();
 
+        // 保持CursorBox在body最后
+        if(this.body.lastChild != this.cursorBox){
+            this.body.append(this.cursorCanvas, this.cursorBox);
+        }
+
         window.requestAnimationFrame(this.animationLoop.bind(this));
     }
 
 }
 
 var CUR;
-
 CUR = new OSUCursor();
-
 CUR.animationLoop();
 
 window.addEventListener('mousemove', function (e) {
