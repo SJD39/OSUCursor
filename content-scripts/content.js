@@ -59,6 +59,7 @@ class OSUCursor {
         if (this.tracePoints.length == 0) {
             return;
         }
+
         this.setCursorPoint(this.tracePoints[0][0], this.tracePoints[0][1]);
         return;
     }
@@ -119,7 +120,6 @@ class OSUCursor {
         this.ctx.closePath();
 
         window.requestAnimationFrame(this.animationLoop.bind(this));
-
     }
 
 }

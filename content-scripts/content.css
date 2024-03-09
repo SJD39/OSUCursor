@@ -29,7 +29,7 @@
     }
 }
 
-html{
+*{
     cursor: none;
 }
 
@@ -70,4 +70,9 @@ html{
     height: 80px;
 
     animation: CursorRingRotate 3s linear infinite;
+}
+
+/* 兼容性 */
+#cursorRing img, #cursorCenter img{
+    max-width: none;
 }
