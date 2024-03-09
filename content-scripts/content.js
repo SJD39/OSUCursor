@@ -31,8 +31,6 @@ class OSUCursor {
         this.ctx.lineJoin = 'round';
         this.ctx.strokeStyle = '#88bbff';
         this.ctx.lineWidth = 4;
-        // this.ctx.shadowBlur = 4;
-        // this.ctx.shadowColor = '#88bbff';
 
         // 初始化变量
         this.tracePoints = [];

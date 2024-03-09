@@ -30,7 +30,7 @@
 }
 
 *{
-    cursor: none;
+    cursor: none !important;
 }
 
 #cursorCanvas{
