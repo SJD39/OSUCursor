@@ -38,6 +38,19 @@ class OSUCursor {
         this.traceLength = 40;
     }
 
+    // 设置Canvas大小
+    setCanvasSize() {
+        this.cursorCanvas.width = window.innerWidth;
+        this.cursorCanvas.height = window.innerHeight;
+
+        this.ctx = this.cursorCanvas.getContext("2d");
+        this.ctx.lineCap = 'round';
+        this.ctx.lineJoin = 'round';
+        this.ctx.strokeStyle = '#88bbff';
+        this.ctx.lineWidth = 4;
+        return;
+    }
+
     // 更新鼠标数据
     addPoint(x, y, t) {
         this.tracePoints.unshift([x, y, t]);
@@ -138,6 +151,11 @@ class OSUCursor {
 var CUR;
 CUR = new OSUCursor();
 CUR.animationLoop();
+
+window.addEventListener('resize', function () {
+    CUR.setCanvasSize();
+    return;
+});
 
 window.addEventListener('mousemove', function (e) {
     CUR.visibleCursor();
