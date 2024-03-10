@@ -118,9 +118,16 @@ class OSUCursor {
         }
         this.ctx.closePath();
 
-        // 保持CursorBox在body最后
-        if(this.body.lastChild != this.cursorBox){
-            this.body.append(this.cursorCanvas, this.cursorBox);
+        // 全屏模式显示光标
+        if (document.fullscreenElement != null) {
+            if (this.cursorBox.parentNode != document.fullscreenElement) {
+                document.fullscreenElement.append(this.cursorCanvas, this.cursorBox);
+            }
+        } else {
+            // 保持CursorBox在body最后
+            if (this.body.lastChild != this.cursorBox) {
+                this.body.append(this.cursorCanvas, this.cursorBox);
+            }
         }
 
         window.requestAnimationFrame(this.animationLoop.bind(this));

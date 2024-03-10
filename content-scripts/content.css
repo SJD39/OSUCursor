@@ -74,5 +74,5 @@
 
 /* 兼容性 */
 #cursorRing img, #cursorCenter img{
-    max-width: none;
+    max-width: none !important;
 }
