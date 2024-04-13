@@ -30,7 +30,7 @@ class OSUCursor {
         this.ctx = this.cursorCanvas.getContext("2d");
         this.ctx.lineCap = 'round';
         this.ctx.lineJoin = 'round';
-        this.ctx.strokeStyle = '#88bbff';
+        this.ctx.strokeStyle = '#4e91eb';
         this.ctx.lineWidth = 4;
 
         // 初始化变量
@@ -90,13 +90,13 @@ class OSUCursor {
 
     // 指针变大
     cursorToBig() {
-        this.cursorRingImg.style.animation = 'CursorRingBig .2s forwards, CursorRingRotate 3s linear infinite';
+        this.cursorRingImg.style.animation = 'CursorRingBig .14s forwards, CursorRingRotate 6s linear infinite';
         return;
     }
 
     // 指针变小
     cursorToSmall() {
-        this.cursorRingImg.style.animation = 'CursorRingSmall .2s forwards, CursorRingRotate 3s linear infinite';
+        this.cursorRingImg.style.animation = 'CursorRingSmall .14s forwards, CursorRingRotate 6s linear infinite';
         return;
     }
 
@@ -124,7 +124,7 @@ class OSUCursor {
                 this.ctx.stroke();
                 break;
             } else {
-                this.ctx.globalAlpha = 1 - ((time - this.tracePoints[i - 1][2]) / 800);
+                this.ctx.globalAlpha = (1 - ((time - this.tracePoints[i - 1][2]) / 800)) * 0.06;
             }
 
             this.ctx.stroke();
@@ -147,6 +147,8 @@ class OSUCursor {
     }
 
 }
+
+document.getElementsByTagName('html')[0].style.filter = 'brightness(2.5)';
 
 var CUR;
 CUR = new OSUCursor();

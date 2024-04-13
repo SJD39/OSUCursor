@@ -9,23 +9,23 @@
 
 @keyframes CursorRingBig {
     0%{
-        width: 80px;
-        height: 80px;
+        width: 82px;
+        height: 82px;
     }
     100%{
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
     }
 }
 
 @keyframes CursorRingSmall {
     0%{
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
     }
     100%{
-        width: 80px;
-        height: 80px;
+        width: 82px;
+        height: 82px;
     }
 }
 
@@ -42,9 +42,12 @@
     z-index: 2147483647;
 
     filter: blur(2px);
+    opacity: .6;
+    background-color: black;
 }
 
 #cursorBox{
+    filter: brightness(0.4);
     pointer-events: none;
     opacity: 0;
 
@@ -61,15 +64,15 @@
 }
 
 #cursorCenter img{
-    width: 30px;
-    height: 30px;
+    width: 33px;
+    height: 33px;
 }
 
 #cursorRing img{
-    width: 80px;
-    height: 80px;
+    width: 82px;
+    height: 82px;
 
-    animation: CursorRingRotate 3s linear infinite;
+    animation: CursorRingRotate 6s linear infinite;
 }
 
 /* 兼容性 */
