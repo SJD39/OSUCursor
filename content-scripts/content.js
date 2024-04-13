@@ -148,7 +148,7 @@ class OSUCursor {
 
 }
 
-document.getElementsByTagName('html')[0].style.filter = 'brightness(2.5)';
+document.getElementsByTagName('html')[0].style.filter = 'brightness(2.5) !important';
 
 var CUR;
 CUR = new OSUCursor();
